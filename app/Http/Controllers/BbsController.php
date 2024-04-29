@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
 
+use App\Models\Bb;
+
 class BbsController
 {
     public function index() {
-        return response('Default index action')
-            ->header('Content-Type', 'text/plain');
+        $context = ['bbs' => Bb::latest()->get()];
+
+        return view('index', $context);
+    }
+
+    public function detail(Bb $item) {
+        return view('detail', ['item' => $item]);
     }
 }
