@@ -11,6 +11,7 @@
                         {{$item->title}}
                     </a>
                 </h2>
+                <p>Автор: {{$item->user->name}}</p>
                 <p>{{$item->content}}</p>
                 <p>{{$item->price}}</p>
             </article>
