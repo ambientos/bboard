@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Bb extends Model
 {
@@ -11,6 +12,13 @@ class Bb extends Model
         'content',
         'price'
     ];
+
+    protected function price(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value . ' руб.'
+        );
+    }
 
     public function user()
     {
